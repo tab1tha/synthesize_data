@@ -9,7 +9,6 @@ from DataSynthesizer.lib.utils import read_json_file
 import pandas as pd
 
 file = st.file_uploader("Upload a file", type="csv")
-num_tuples_to_generate = int(st.text_input("How many rows of synthetic data do you want to generate?"))
 
 if file:
     df = pd.read_csv(file)
@@ -25,6 +24,7 @@ if file:
 
     epsilon = 1
     degree_of_bayesian_network = 2 
+    num_tuples_to_generate = 3000
 
     describer = DataDescriber(category_threshold=threshold_value)
     describer.describe_dataset_in_independent_attribute_mode(dataset_file=input_data, 
